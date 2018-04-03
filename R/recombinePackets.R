@@ -50,6 +50,7 @@ recombinePackets <- function(dir, form, namesCol){
 filesRead <- function(nameFile, form, namesCol){
   if (form == '.rds'){
     data <- readRDS(nameFile)
+    col.names <- 'overwrite or else it is unused'
   } else {
     data <- read.csv(nameFile, col.names = TRUE, sep = ",")
   }
