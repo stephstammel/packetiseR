@@ -27,7 +27,7 @@ recombinePackets <- function(dir, form, namesCol){
                          full.names = TRUE,
                          recursive = FALSE)
 
-  newFile <- map(filesGet, filesRead, form)
+  newFile <- map(filesGet, filesRead, form, namesCol)
   newFile <- do.call("rbind", newFile)
 
   return(newFile)
@@ -47,7 +47,7 @@ recombinePackets <- function(dir, form, namesCol){
 #'
 #' x <- filesRead('./namehere.rds', '.rds')
 #'
-filesRead <- function(nameFile, form){
+filesRead <- function(nameFile, form, namesCol){
   if (form == '.rds'){
     data <- readRDS(nameFile)
   } else {
